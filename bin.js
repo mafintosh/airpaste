@@ -10,4 +10,4 @@ if (process.argv.indexOf('--help') > -1 || process.argv.indexOf('-h') > -1) {
 var stream = airpaste(process.argv[2])
 
 process.stdin.pipe(stream).pipe(process.stdout)
-process.stdin.unref()
+if (process.stdin.unref) process.stdin.unref()
