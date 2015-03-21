@@ -4,6 +4,8 @@ var duplexify = require('duplexify')
 var net = require('net')
 
 module.exports = function (name) {
+  name = 'airpaste-' + (name || 'global')
+
   var stream = duplexify()
 
   var pipe = function (socket) {

@@ -1,9 +1,7 @@
 #!/usr/bin/env node
 
 var airpaste = require('./')
-
-var name = 'airpaste-' + (process.argv[2] || 'global')
-var stream = airpaste(name)
+var stream = airpaste(process.argv[2])
 
 process.stdin.pipe(stream).pipe(process.stdout)
 process.stdin.unref()
