@@ -11,3 +11,7 @@ var stream = airpaste(process.argv[2])
 
 process.stdin.pipe(stream).pipe(process.stdout)
 if (process.stdin.unref) process.stdin.unref()
+
+process.once('uncaughtException', function (err) { // yolo
+  if (err.code !== 'EPIPE') throw err
+})
