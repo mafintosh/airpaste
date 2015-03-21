@@ -8,9 +8,14 @@
     "multicast-dns": "^2.0.0",
     "network-address": "^1.0.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "standard": "^3.2.0"
+  },
   "bin": {
     "airpaste": "bin.js"
+  },
+  "scripts": {
+    "test": "standard"
   },
   "repository": {
     "type": "git",
