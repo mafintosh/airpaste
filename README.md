@@ -1,6 +1,6 @@
 # airpaste
 
-A 1-1 network pipe that discovers auto discovers other peers using mdns
+A 1-1 network pipe that auto discovers other peers using mdns
 
 ```
 npm install -g airpaste
