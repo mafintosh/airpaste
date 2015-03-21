@@ -1,7 +1,6 @@
 var mdns = require('multicast-dns')()
 var address = require('network-address')
 var duplexify = require('duplexify')
-var pump = require('pump')
 var net = require('net')
 
 module.exports = function (name) {
