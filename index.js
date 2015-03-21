@@ -1,6 +1,7 @@
 var mdns = require('multicast-dns')()
 var address = require('network-address')
 var duplexify = require('duplexify')
+var once = require('once')
 var net = require('net')
 
 module.exports = function (name) {
@@ -9,13 +10,13 @@ module.exports = function (name) {
   var stream = duplexify()
   var interval
 
-  var pipe = function (socket) {
+  var pipe = once(function (socket) {
     clearInterval(interval)
     server.close()
     mdns.destroy()
     stream.setReadable(socket)
     stream.setWritable(socket)
-  }
+  })
 
   var server = net.createServer(pipe)
 
