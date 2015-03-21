@@ -7,6 +7,7 @@ module.exports = function (name) {
   name = 'airpaste-' + (name || 'global')
 
   var stream = duplexify()
+  var interval
 
   var pipe = function (socket) {
     clearInterval(interval)
@@ -17,7 +18,6 @@ module.exports = function (name) {
   }
 
   var server = net.createServer(pipe)
-  var interval
 
   server.listen(0, function () {
     var port = server.address().port
