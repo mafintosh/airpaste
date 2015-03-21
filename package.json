@@ -9,6 +9,9 @@
     "pump": "^1.0.0"
   },
   "devDependencies": {},
+  "bin": {
+    "airpaste": "airpaste"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/mafintosh/airpaste.git"
