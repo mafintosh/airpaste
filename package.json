@@ -1,6 +1,6 @@
 {
   "name": "airpaste",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A 1-1 network pipe that discovers auto discovers other peers using mdns",
   "main": "index.js",
   "dependencies": {
