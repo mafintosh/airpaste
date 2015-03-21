@@ -1,0 +1,22 @@
+{
+  "name": "airpaste",
+  "version": "0.0.0",
+  "description": "A 1-1 network pipe that discovers auto discovers other peers using mdns",
+  "main": "index.js",
+  "dependencies": {
+    "duplexify": "^3.2.0",
+    "multicast-dns": "^2.0.0",
+    "pump": "^1.0.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mafintosh/airpaste.git"
+  },
+  "author": "Mathias Buus (@mafintosh)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mafintosh/airpaste/issues"
+  },
+  "homepage": "https://github.com/mafintosh/airpaste"
+}
