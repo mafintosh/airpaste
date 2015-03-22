@@ -1,4 +1,4 @@
-var mdns = require('multicast-dns')()
+var mdns = require('multicast-dns')
 var address = require('network-address')
 var duplexify = require('duplexify')
 var once = require('once')
@@ -7,13 +7,14 @@ var net = require('net')
 module.exports = function (name) {
   name = 'airpaste-' + (name || 'global')
 
+  var dns = mdns()
   var stream = duplexify()
   var interval
 
   var pipe = once(function (socket) {
     clearInterval(interval)
     server.close()
-    mdns.destroy()
+    dns.destroy()
     stream.setReadable(socket)
     stream.setWritable(socket)
   })
@@ -25,7 +26,7 @@ module.exports = function (name) {
     var addr = address()
     var me = addr + ':' + port
 
-    mdns.on('response', function (response) {
+    dns.on('response', function (response) {
       response.answers.forEach(function (a) {
         var id = a.data.target + ':' + a.data.port
         if (a.type !== 'SRV' || a.name !== name || me === id) return
@@ -34,8 +35,8 @@ module.exports = function (name) {
       })
     })
 
-    mdns.on('query', function (query) {
-      mdns.respond({
+    dns.on('query', function (query) {
+      dns.respond({
         answers: [{
           type: 'SRV',
           ttl: 5,
@@ -46,7 +47,7 @@ module.exports = function (name) {
     })
 
     var query = function () {
-      mdns.query({
+      dns.query({
         questions: [{
           name: name,
           type: 'SRV'
