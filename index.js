@@ -36,13 +36,16 @@ module.exports = function (name) {
     })
 
     dns.on('query', function (query) {
-      dns.respond({
-        answers: [{
-          type: 'SRV',
-          ttl: 5,
-          name: name,
-          data: {port: port, target: addr}
-        }]
+      query.questions.forEach(function (q) {
+        if (q.name !== name) return
+        dns.respond({
+          answers: [{
+            type: 'SRV',
+            ttl: 5,
+            name: name,
+            data: {port: port, target: addr}
+          }]
+        })
       })
     })
 
