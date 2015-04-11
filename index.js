@@ -15,6 +15,7 @@ module.exports = function (name) {
     clearInterval(interval)
     server.close()
     dns.destroy()
+    socket.setKeepAlive(true)
     stream.setReadable(socket)
     stream.setWritable(socket)
   })
