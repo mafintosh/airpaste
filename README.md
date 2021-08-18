@@ -72,6 +72,10 @@ process.stdin.pipe(stream).pipe(process.stdout)
 
 Optionally you can pass a namespace to `airpaste()`
 
+## Security Note
+
+Data moves over the network without encryption and could be captured. Only intended for use on trusted networks.
+
 ## License
 
 MIT
